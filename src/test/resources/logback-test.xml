@@ -16,8 +16,7 @@
         <appender-ref ref="CONSOLE" />
     </root>
 
-    <logger name="com.vgd.pokeapi.IntegrationTest" additivity="false">
-        <appender-ref ref="CONSOLE" level="INFO"/>
-        <appender-ref ref="FILE"  level="DEBUG"/>
+    <logger name="com.vgd.pokeapi.IntegrationTest" level="DEBUG" additivity="false">
+        <appender-ref ref="FILE" level="DEBUG" />
     </logger>
 </configuration>

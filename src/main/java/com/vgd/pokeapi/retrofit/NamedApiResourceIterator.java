@@ -39,12 +39,12 @@ class NamedApiResourceIterator implements Iterator<NamedApiResource> {
     public boolean hasNext() {
         if (resources == null) {
             resources = Retry.decorateCheckedSupplier(retrier,
-                    () -> pokeApi.getResourceList(namedResource, pageSize, 0).execute().body()).get();
+                    () -> pokeApi.getResourceList(namedResource, pageSize,
+                            0).execute().body())
+                    .get();
+            iterator = resources.getResults().iterator();
         }
-        iterator = resources.getResults().iterator();
-        if (!iterator.hasNext())
-
-        {
+        if (!iterator.hasNext()) {
             if (resources.getNextOffset().isEmpty()) {
                 return false;
             }

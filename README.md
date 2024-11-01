@@ -77,8 +77,7 @@ We make 3 attempts with a 250ms wait duration between each attempt.
 ./mvnw test
 ```
 
-- INFO logs will be written to STDOUT.
-- DEBUG logs will be written into `test-debug.log` in the project root directory.
+All logs will be written into `test-debug.log` in the project root directory.
 
 ## Configuration
 
