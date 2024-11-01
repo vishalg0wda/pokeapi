@@ -59,10 +59,10 @@ public class PokeServiceFactory {
                 .waitDuration(config.getDuration("poke-api.retry.wait-duration"))
                 .retryOnException(e -> {
                     // No point retrying on 404 errors
-                    // if (e instanceof ResourceNotFoundError) {
-                        // return false;
-                    // }
-                    // Any other error is worth retrying. 
+                    if (e instanceof ResourceNotFoundError) {
+                    return false;
+                    }
+                    // Any other error is worth retrying.
                     // Can probably be more granular here.
                     return true;
                 })
@@ -71,7 +71,9 @@ public class PokeServiceFactory {
 
     /**
      * Create a new {@link OkHttpClient} instance using the factory configuration.
-     * We configure OkHttpClient to explicitly throw exceptions for non-200 responses.
+     * We configure OkHttpClient to explicitly throw exceptions for non-200
+     * responses.
+     * 
      * @param config
      * @return
      */
